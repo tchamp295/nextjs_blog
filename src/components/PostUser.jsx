@@ -1,4 +1,5 @@
 import { getUser } from "@/lib/data";
+import Image from "next/image";
 
 const PostUser = async ({ userId }) => {
   const user = await getUser(userId);
@@ -7,7 +8,7 @@ const PostUser = async ({ userId }) => {
       <div className=" h-12 w-12 relative">
         <Image
           className="  rounded-full "
-          src={user.img ? user.img : "/ob2.jpg"}
+          src={user?.img ? user.img : "/ob2.jpg"}
           alt="post image"
           objectFit="cover"
           fill

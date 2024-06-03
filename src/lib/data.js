@@ -14,7 +14,9 @@ export const getPosts = async () => {
 export const getPost = async (slug) => {
   try {
     await connectMongoDB();
-    const post = await Post.findOne({ slug });
+    console.log(slug)
+    const post = await Post.findOne( {slug });
+    console.log(post);
     return post;
   } catch (error) {
     console.log(error);
@@ -24,8 +26,8 @@ export const getPost = async (slug) => {
 export const getUser = async (id) => {
   noStore();
   try {
-    connectMongoDB();
-    const user = await User.findById({ id });
+   await connectMongoDB();
+    const user = await User.findById( id );
     return user;
   } catch (error) {
     console.log(error);

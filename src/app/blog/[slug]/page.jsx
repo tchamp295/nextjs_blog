@@ -1,3 +1,4 @@
+import PostUser from "@/components/PostUser";
 import { getPost } from "@/lib/data";
 import Image from "next/image";
 import { Suspense } from "react";
@@ -11,8 +12,10 @@ export const generateMetadata = async ({ params }) => {
 };
 const SinglePostPage = async ({ params }) => {
   const { slug } = params;
-  const post = await getPost(slug);
+  console.log(slug)
+        const post = await getPost(slug);
   return (
+    
     <div className=" max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-3">
       {post.img && (
         <div className="  h-[400px] relative">
